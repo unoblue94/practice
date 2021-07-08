@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+</head>
+<body>
+    <h1 id='demo1-js' style ='color:gold'></h1>  
+    <h1 id='demo2-array' style='color:red'></h1>
+    <h1 id='demo2-array2' style='color:rgb(0, 255, 42)'></h1>
+    <h1 id='demo2-array3' style='color:rgb(17, 0, 255)'></h1>
+    <h1 id='demo2-array4' style='color:rgb(255, 0, 170)'></h1>
+    <p id = 'demo-ul' style = 'color:gray'></p>
+    <p id = 'demo' style = 'color:rgb(7, 1, 1)'></p>
+    <h1 id ='forEach' style='color:teal'>hy</h1>
+    <div class="array-splice" style="color:#000ff0"></div>
+    <div class="array-pop"></div>
+    <div class="array-shift"></div>
+    <div class="array-unshift"></div>
+    <h1 class="array-splice2"></h1>
+    
+    <script>
+        function multiply(a,b) {
+            return a + b;
+        }
+        document.getElementById('demo1-js').innerHTML =multiply(5,5);
+        let m = multiply(10,10);
+        
+
+        // contoh penulisan array
+
+        var a =['ardy', 'ardian', 1994];
+            document.getElementById('demo2-array').innerHTML = 'isi dari  var a adalah ' + a;
+            // space and line break are not important.
+        var b = [
+            'ardy',
+            'ardian',
+            1994];
+        var c = ['ardy','ardian',1994];
+            document.getElementById('demo2-array2').innerHTML = c;    //execution result
+            //  To change element in array
+        var d = [
+            'ardi',
+            'ardian',
+            1994
+        ];
+            d[0]= 'uno';
+            document.getElementById('demo2-array3').innerHTML = d;
+            // accessing first element on array
+        var d = ['uno' ,'alias', 'ardian', 'umur', 1994];
+        var firstElement= d[0]; //result 'uno'
+        var thirdElement= d[d.length - 2]; // result 'umur';
+            document.getElementById('demo2-array4').innerHTML = thirdElement;
+
+            // make un order list by array;
+        var cars,cLength,ul,i;
+        cars =['BMW', 'Izuzu', 'Phanter', 'Toyouta'];
+        cLength= cars.length;
+        ul = "<ul>";
+    
+        for ( i = 0; i < cLength; i++){
+            ul += "<li>" + cars[i] + "</li>";
+        }
+            ul += "<ul>";
+        document.getElementById('demo-ul').innerHTML = ul;
+
+
+        var fruits, text, fLen, i;
+        fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fLen = fruits.length;
+
+        text = '<ul>';
+        for (i = 0; i < fLen; i++) {
+        text += '<li>' + fruits[i] + '</li>';
+        }
+        text += '</ul>';
+
+        document.getElementById("demo").innerHTML = text;
+
+            // you can use also array.forEach() function;
+        var electro = ['hp', 'pc', 'tv', 'speaker'], uL = '<ul>', closeUl;
+            electro.forEach(fValue);
+            closeUl = '</ul>';
+
+        function fValue(count){
+            uL += '<li>' + count + '</li>' + '<br>';
+        };
+
+        document.getElementById('forEach').innerHTML =uL;
+        console.log(uL);
+            // Array methods array.splice() 'use parameter' to add array in specific place;
+        let container = ['fruits', 'wood', 'iron' ,'stone' ]
+            container.splice(1,0,'pepper','meat');
+            document.getElementsByClassName('array-splice')[0].innerHTML = container.join(' ');
+            //using .pop to remove from end;
+            container.pop();
+            document.getElementsByClassName('array-pop')[0].innerHTML =container.join(' ')
+            // using .shift to remove from start
+            container.shift();
+            document.getElementsByClassName('array-shift')[0].innerHTML =container.join(' ')
+            // using .unshift to add from start
+            container.unshift('tomato');
+            document.getElementsByClassName('array-unshift')[0].innerHTML =container.join(' ')
+            //using .splice to remove
+            container.splice(1,2);
+            document.getElementsByClassName('array-splice2')[0].innerHTML =container.join(' ')
+            
+
+        //JAVASCRIPT DOM
+            //Dom manipulation
+            // create new element '<h2>heading 2</h2>'inside  the body;
+            const newH2 = document.createElement('h2');
+            const fillNewH2 = document.createTextNode('this is heading two');
+            newH2.appendChild(fillNewH2);
+            document.body.appendChild(newH2);
+
+            // creata new element '<h1>Heading one</h1>' between element 'h1 id='foreach' & h2';
+            const nH1 =document.createElement('h1');
+            const fillNh1=document.createTextNode('this is new heading one');
+            nH1.appendChild(fillNh1);
+            const idForEach = document.getElementById('forEach');
+            document.body.insertBefore(nH1,newH2);
+            nH1.style.color='red';
+
+
+
+                        
+                
+
+
+    </script>
+    
+</body>
+</html>

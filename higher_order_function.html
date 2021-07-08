@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIGHER ORDER FUNCTION</title>
+</head>
+<body>
+    <script>
+
+
+// CONTOH HIGHER ORDER FUNCTION 1
+
+function kerjakanTugas(matakuliah,selesai){
+    console.log(`mulai mengerjakan tugas ${matakuliah}....`);
+    selesai();
+}; // higher order function
+
+function selesai(){
+    alert(`selesai mengerjakan tugas`);
+}; // callback
+
+kerjakanTugas('web Development', selesai); // calling higher order function
+
+
+
+
+
+// CONTORH HIGHER ORDER FUNCTION 2
+function multiply(plus, divide){
+    let a = plus();
+    let b = divide();
+    console.log( a + b);
+}
+
+function plus(){
+    let a = 50;
+    let b = 50;
+    return  a + b;
+}; // callback
+
+function divide(){
+    let a = 50;
+    let b = 50;
+    return  a / b;
+}; //callback
+
+multiply(plus,divide); // calling higher order function;
+
+
+//CONTOH HIGHER ORDER FUNCTION 3.
+function multiplyPlus(para1, para2){
+    console.log(para1(100 , 50) + para2(15 ,100));
+};// higher order function
+
+
+function plus1(para1,para2){
+    return para1 + para2;
+};// callback 1
+
+function plus2(para1,para2){
+    return para1 + para2 ;
+} //callback 2
+
+multiplyPlus(plus1,plus2);
+
+
+// CONTOH HIGHER ORDR FUNCTION 4;
+setInterval(function(){
+    console.log('show me');
+}, 2000);
+
+
+// CONTOH HIGHER ORDR FUNCTION 5;
+setTimeout(function(){
+    console.log('here i am');
+}, 2000);
+
+
+//CONTOH HIGHER ORDER FUNCTION 6
+function ucapkanSalam(para1, para2){
+    return function(p){
+        console.log(`${p} ${para1('pagi')} ${para2('ardian')}`);
+    }
+};
+
+function salam(para1){
+    return `selamat ${para1}`;
+}
+function nama(nama){
+    return nama;
+};
+
+let selamat = ucapkanSalam(salam,nama);
+selamat('hay');
+
+//CONTOH HIGHER ORDER FUNCTION 7
+ let tanya = ucapkanSalam(function(){
+    return `apakah nama kamu`
+ }, nama);
+
+ tanya('hay');
+
+
+
+
+
+
+    </script>
+</body>
+</html>

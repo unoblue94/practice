@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBJECT</title>
+</head>
+<body>
+    <div id ='object-literal'></div>
+    <div id ='function-declaration'></div>
+    <div id ='constructor-function'></div>
+    
+
+
+    <script>
+        const objectL = document.getElementById('object-literal');
+        const functionD = document.getElementById('function-declaration');
+        const constructorF = document.getElementById('constructor-function');
+
+        // OBJECT LITERAL//
+        let MyId = {
+            name:'ardy ardian',
+            age: 26,
+            status: 'single',
+            birthday: function(age){
+                console.log(age);
+                return this.age = this.age + age;
+            }
+        };
+        objectL.innerHTML = 'object Literal ' + MyId.birthday(2);
+        console.log(MyId);   /* result 
+                                 {
+                                    "name": "ardy ardian",
+                                     "age": 28,
+                                     "status": "single"
+                                    } 
+                             */
+
+        this.address =0
+        //FUNCTION DECLARATION//
+        function MyId2(name, age){
+            let MyId ={};
+            MyId.name = name;
+            MyId.age = age;
+            MyId.birthday = function(extra){
+                return MyId.age = MyId.age + extra;
+            };
+            return MyId;
+        };
+
+        let Id2 = MyId2('ardy ardian', 26);
+        functionD.innerHTML ='function declaration ' + Id2.birthday(5);
+        console.log(Id2);
+        console.log(Id2.birthday(5));
+        console.log(Id2);
+
+
+
+
+
+       //CONSTRUCTION FUNCTION// RECOMMENDED TO USE//
+       function MyId3(name,age){
+           this.name = name;
+           this.age = age;
+           this.birthday = function(extra){
+               return this.age = this.age + extra;
+           };
+       };
+
+       let id3 = new MyId3('ardyansyah', 27);
+       constructorF.innerHTML = 'constructor ' + id3.birthday(3);
+       console.log(id3);
+       
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Dom</title>
+    <style>
+        *
+        {
+            /* padding: 0;
+            margin: 0; */
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body
+        {
+            text-align: center;
+        }
+        .lightblue{
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body> 
+    <h1>play with the colors</h1>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        //  create element button + style
+        const button = document.createElement('button');
+        const tButton = document.createTextNode('change color');
+        button.appendChild(tButton);
+        button.setAttribute('type','button');
+        const eHead1 = document.querySelector('h1');
+        eHead1.after(button);
+        button.style.backgroundColor='yellow';
+        button.style.borderTopRightRadius= '2px';
+        // add event handler
+        button.onclick = function(){
+            document.body.setAttribute('style','')
+            document.body.classList.toggle('lightblue')
+        }
+
+        // create element button 2
+        const button_2 =document.createElement('button');
+        button_2.setAttribute('type','button');
+        const tButton_2 =document.createTextNode('suffle');
+        button_2.appendChild(tButton_2);
+        button.after(button_2);
+        button_2.style.padding='5px'
+        button_2.style.backgroundColor ='grey';
+        // add eventlistener on button 2
+        button_2.addEventListener('click', function(){
+            const r =Math.ceil(Math.random() * 255 +1),
+                  g =Math.ceil(Math.random() * 255 +1),
+                  b =Math.ceil(Math.random() * 255 +1);
+            document.body.style.backgroundColor='rgb('+r+','+g+','+b+')';   
+        })
+
+        // create element div using js
+        const div = document.createElement('div')
+        button_2.after(div);
+            // add .classList
+        div.classList.add('circle');
+        div.classList.add('red');
+            // get element by class name circle
+        const circle = document.getElementsByClassName('circle')[0];
+        circle.style.width ='30px'
+        circle.style.height ='30px'
+        circle.style.margin ='auto'
+        circle.style.marginTop ='50px';
+        circle.style.borderRadius ='50%';
+
+
+            // get element by class name 'red'
+        const red = document.getElementsByClassName('red')[0];
+        red.style.backgroundColor='red';
+
+            // create element slider using js + attribute
+        const sliderRed = document.createElement('input');
+        sliderRed.setAttribute('type','range');
+        sliderRed.setAttribute('name','redslider');
+        sliderRed.setAttribute('min','0');
+        sliderRed.setAttribute('max','255');
+        red.after(sliderRed);
+        sliderRed.style.margin='auto';
+        sliderRed.style.marginTop='5px';
+        const redslider=document.querySelector('input[name=redslider]');
+        
+        
+        
+        
+        
+        
+
+            // create element slider green
+        const div2 =document.createElement('div');
+        div2.classList.add('green');
+        redslider.after(div2);
+        div2.style.width ='30px';
+        div2.style.height ='30px';
+        div2.style.backgroundColor ='green';
+        div2.style.margin='auto';
+        div2.style.marginTop='5px';
+        div2.style.borderRadius = '50%'
+        const sliderGreen = document.createElement('input');
+        sliderGreen.setAttribute('type','range');
+        sliderGreen.setAttribute('name','sliderGreen');
+        sliderGreen.setAttribute('min','0');
+        sliderGreen.setAttribute('max','255');
+        div2.after(sliderGreen);
+
+        
+
+        // create element for slider blue
+        const div3 = document.createElement('div')
+        div3.setAttribute('class','blue')
+        div3.style.backgroundColor ='blue'
+        div3.style.margin ='auto';
+        div3.style.marginTop ='5px';
+        div3.style.width='30px';
+        div3.style.height='30px';
+        div3.style.borderRadius='50%';
+        
+        sliderGreen.after(div3);
+        
+        const sliderBlue = document.createElement('input');
+        div3.after(sliderBlue);
+        sliderBlue.setAttribute('type','range');
+        sliderBlue.setAttribute('name','sliderBlue');
+        sliderBlue.setAttribute('min','0');
+        sliderBlue.setAttribute('max','255');
+
+
+        //  add eventlistener on slider Red
+        redslider.addEventListener('input', function(){
+            const r = redslider.value;
+            const g = sliderGreen.value;
+            const b = sliderBlue.value
+            document.body.style.backgroundColor = 'rgb('+r+','+g+','+b+')'
+            
+        })
+
+        // addeventlister on sliderGreen
+        sliderGreen.addEventListener('input',function(){
+            const r = redslider.value;
+            const g = sliderGreen.value;
+            const b = sliderBlue.value;
+            document.body.style.backgroundColor='rgb('+r+','+g+','+b+')'
+        })
+
+        // add eventlistener on sliderBlue
+        sliderBlue.addEventListener('input',function(){
+            const r = redslider.value;
+            const g = sliderGreen.value;
+            const b = sliderBlue.value;
+            document.body.style.backgroundColor = 'rgb('+r+','+g+','+b+')'
+        });
+
+
+        // add eventlistener on mausemove using clienX & clientY and window.innerWidth;
+        document.body.addEventListener('mousemove', function(e){
+            const xPos = Math.ceil(e.clientX / window.innerWidth * 255);
+            const yPos =Math.ceil(e.clientY/ window.innerHeight * 255);
+            console.log(xPos);
+            document.body.style.backgroundColor = 'rgb('+yPos+','+xPos+','+yPos+')'
+
+            // add style height to body
+            document.body.style.height='100vh'
+        })
+
+        
+
+
+
+
+
+            
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

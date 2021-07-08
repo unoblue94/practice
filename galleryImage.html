@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Image</title>
+    <script src="https://kit.fontawesome.com/7c87bd485d.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            /* line-height:0; */
+            box-sizing: border-box;
+        }
+        body
+        {
+            background-color: rgb(255, 255, 255);
+            overflow-x: hidden;
+        }
+
+
+        @keyframes fadeIn {
+            from{
+                opacity:0;
+            }
+            to{
+                opacity:1;
+            }
+        }
+
+        .fade
+        {
+            animation: fadeIn 2s forwards;
+        }
+        .button
+        {
+            position: absolute;
+            top: 50%;
+            display: flex;
+            justify-content: space-between;
+            width:100%;
+            color: white;
+        }
+
+
+        #title
+        {
+            position: absolute;
+            left:50%;
+            top: 5%;
+            transform: translate(-50%,-50%);
+            color: white;
+            z-index:55;
+        }
+        
+
+        .container-gallery-image
+        {
+            position:relative;
+            width:100vw;
+            height:100vh;
+            overflow-x:hidden;
+            
+        }
+        .images-thumbnail
+        {   display:flex;
+            min-width: 100vw;
+            height: 150px;
+            padding-bottom: 2px;
+            box-sizing: border-box;
+        }
+        .images-thumbnail>img
+        {
+            width:200px;
+            height:150px;
+        }
+        .img-banner
+        {   
+            max-width: 90vw;
+            height: 80vh;
+            margin:.5em auto;
+            background-color: teal;
+            position: relative;
+        }
+        .img-banner>img
+        {
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        i.fas
+        {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 4em;
+            margin: 0 .2em ;
+            color: rgba(0, 128, 128, 0.356);
+        }
+        i.fas:hover
+        {
+            color: #c0c0c0; 
+        }
+        i.fas:nth-child(2)
+        {
+            right:0;
+        }
+
+        .opacity
+        {
+            font-size: 5em;
+        }
+
+        .grayscale
+        {
+            filter:grayscale(100%) brightness(60%);
+            transition:.5s;
+            margin:0 4px;
+            border-radius:5px;
+        }
+        .scale
+        {   
+            position: relative;
+            transition:.5s;
+            border-radius:5px;
+        }
+        .transition
+        {
+            transition:.7s ease-in-out;
+        }
+
+
+
+
+        .container-slider-gallery{
+            width: 350px;
+            height: 500px;
+            margin:5em auto;
+            border: 2px solid yellow;
+            overflow-x:hidden;
+            position:relative;
+        }
+
+        .corousel-images{
+            display: flex;
+            width: 100%;
+        }
+        .corousel-images>img{
+          width: 350px;
+        }
+
+        #prev-button,#next-button{
+            position: absolute;
+            top:50%;
+            padding:1em;
+            transform:translateY(-50%);
+            z-index:55;
+        }
+        #prev-button{
+            left: 1vw;
+        }
+        #next-button{
+           right:1vw;
+        }
+
+
+
+
+
+        #gambar{
+            margin: 5em 0;
+            /* border: 5px solid black; */
+            position:relative;
+        }
+        #heading-title{
+            margin: auto;
+            text-align: center;
+            color: teal;
+            text-decoration:underline;
+            margin-bottom: 1em;
+        }
+        #banner-preview{
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #prevB{
+            position: absolute;
+            top:50%;
+            left:-50px;
+            padding: 1em;
+            transition: 1s;
+        }
+        #nextB{
+            position: absolute;
+            top:50%;
+            right:-50px;
+            padding: 1em;
+            transition:1s;
+        }
+        #corousel{
+            width: 200px;
+            height: 150px;
+            /* border: 5px solid red; */
+            position:absolute;
+            left: 50%;
+            transform :translateX(-50%);
+            bottom: 5px;
+            box-sizing:content-box;
+        }
+        .thumb{
+            display:flex;
+            transform:translateX(calc(-200px * 7));
+            transition: transform .4s ease-in-out;
+        }
+        .thumb>img{
+            width:calc(200px);
+            height: calc(150px);  
+        }
+
+     
+        
+
+
+    </style>
+</head>
+<body>
+<!-- IMAGE GALLERY 2.0 START-->
+   <div class="container-gallery-image">
+       <h1 id = 'title'>GALLERY IMAGE 2.0</h1>
+        <div class="img-banner">
+           <i class="fas fa-arrow-left">prev</i>
+           <i class="fas fa-arrow-right">next</i>
+           <img src="images/img25.jpg" alt="">
+        </div>
+       <div class="images-thumbnail">
+           <img src="images/img1.jpg" alt="1">
+           <img src="images/img2.jpg" alt="">
+           <img src="images/img3.jpg" alt="">
+           <img src="images/img4.jpg" alt="">
+           <img src="images/img5.jpg" alt="">
+           <img src="images/img6.jpg" alt="">
+           <img src="images/img7.jpg" alt="">
+           <img src="images/img8.jpg" alt="">
+           <img src="images/img9.jpg" alt="">
+           <img src="images/img10.jpg" alt="">
+           <img src="images/img11.jpg" alt="">
+           <img src="images/img12.jpg" alt="">
+           <img src="images/img13.jpg" alt="">
+           <img src="images/img14.jpg" alt="">
+           <img src="images/img15.jpg" alt="">
+           <img src="images/img16.jpg" alt="">
+           <img src="images/img17.jpg" alt="">
+           <img src="images/img18.jpg" alt="">
+           <img src="images/img19.jpg" alt="">
+           <img src="images/img20.jpg" alt="">
+           <img src="images/img21.jpg" alt="">
+           <img src="images/img22.jpg" alt="">
+           <img src="images/img23.jpg" alt="">
+           <img src="images/img24.jpg" alt="">
+       </div>
+   </div>
+<!-- END IMAGE GALLERY 2.0 -->
+
+<!-- SLIDER IMAGE GALLERY 3.0 START -->
+   <div class="container-slider-gallery">
+       <button id ='prev-button'>prev</button>
+       <button id ='next-button'>next</button>
+       <div class="corousel-images">
+           <img id ='duplicate-5' src="img-thumb/5.jpg" alt="">
+           <img src="img-thumb/1.jpg" alt="">
+           <img src="img-thumb/2.jpg" alt="">
+           <img src="img-thumb/3.jpg" alt="">
+           <img src="img-thumb/4.jpg" alt="">
+           <img src="img-thumb/5.jpg" alt="">
+           <img id ='duplicate-1' src="img-thumb/1.jpg" alt="">
+       </div>
+   </div>
+
+
+
+<!-- SLIDER IMAGE GALLERY END -->
+
+
+
+
+<!-- REVIISI IMAGE GALLLERY 2.0 START -->
+
+   <div id="gambar">
+       <h1 id = 'heading-title'>REVISI IMAGE GALLERY 2.0</h1>
+       <img id ='banner-preview' src="images/img1.jpg" alt="">
+       <i class="fas fa-arrow-left" id ='prevB'></i>
+       <i class="fas fa-arrow-right" id ='nextB'></i>
+       <div id="corousel">
+           <div class="thumb">
+
+                <img id ='dup-20' src="images/img20.jpg" alt="">
+                <img src="images/img2.jpg" alt="">
+                <img src="images/img3.jpg" alt="2">
+                <img src="images/img4.jpg" alt="3">
+                <img src="images/img5.jpg" alt="4">
+                <img src="images/img6.jpg" alt="5">
+                <img src="images/img7.jpg" alt="6">
+                <img src="images/img8.jpg" alt="7">
+                <img src="images/img9.jpg" alt="8">
+                <img src="images/img10.jpg" alt="9">
+                <img src="images/img11.jpg" alt="10">
+                <img src="images/img12.jpg" alt="11">
+                <img src="images/img13.jpg" alt="12">
+                <img src="images/img14.jpg" alt="13">
+                <img src="images/img15.jpg" alt="14">
+                <img src="images/img16.jpg" alt="15">
+                <img src="images/img17.jpg" alt="16">
+                <img src="images/img18.jpg" alt="17">
+                <img src="images/img19.jpg" alt="18">
+                <img src="images/img20.jpg" alt="19">
+                <img id ='dup-1' src="images/img2.jpg" alt="1">
+           </div>
+
+       </div>
+   </div>
+
+  
+<!-- REVIISI IMAGE GALLLERY 2.0 END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <script>   // JAVASCRIPT // -->
+// IMAGE GALLERY 2.0//
+(function(){
+        //TARGET IMAGE GALLERY 2.0//
+        function Target(){
+            this.container = document.querySelector('.container-gallery-image');
+            this.banner =document.querySelector('.img-banner>img');
+            this.thumbnail = document.querySelector('.images-thumbnail')
+            this.images =document.querySelectorAll('.images-thumbnail>img');
+            this.button =this.container.querySelectorAll('.fas');
+            this.blur = function(i){
+                
+                i.style.transition='1s opacity';
+                i.style.opacity='.5';
+            };
+
+            this.thumbnail.classList.add('transition');
+            this.t =-230;
+            this.i=0;
+            this.x=0;
+            
+            this.thumbnail.addEventListener('click', ( e ) => {
+            e.target.parentElement.previousElementSibling.children[2].src = e.target.src;
+            e.target.parentElement.querySelectorAll('img').forEach(this.blur);
+            e.target.style.opacity ='1';
+
+            })
+        } 
+        const getTarget = new Target();
+        let val = 250;
+        let plus = 1;
+
+
+        getTarget.container.addEventListener('click', function(e){
+            // console.log(this);
+            if(e.target.className == 'fas fa-arrow-left'){
+                // CECK IF getTarget.i EQUAL TO 0 , getTarget.i WILL BE PLUS 24
+                if(getTarget.i == 0){
+                    getTarget.i = + 24; 
+                };
+            
+                // DECREMENT getTarget.i
+                getTarget.i--
+
+            
+                // ADD CLASSLIST GRAYSCALE FOR EACH INDEX getTarget.images
+                getTarget.images.forEach(e => e.classList.add('grayscale'));
+
+                // ADD STYLE TRANSFORM-SCALE(1) FOR EACH INDEX getTarget.images
+                getTarget.images.forEach(e => e.style.transform ='scale(1)');
+
+                // ADD STYLE MARGIN LEFT AND RIGHT 3PX  FOR EACH INDEX getTarget.images
+                getTarget.images.forEach(e => e.style.margin ='0 3px');
+
+                // Z-INDEX SET
+                getTarget.images.forEach(e => e.style.zIndex ='0');
+                
+                // REPLACE GRAY-SCALE CLASS TO BE SCALE CLASS ON  A SINGLE getTarget.images[i];
+                getTarget.images[getTarget.i].classList.replace('grayscale', 'scale');
+
+                // ADD STYLE TRANSFORM SCALE(1.1) ON  A SINGLE getTarget.images[i]
+                getTarget.images[getTarget.i].style.transform ='scale(1.1)';
+
+                // Z-INDEX SET
+                getTarget.images[getTarget.i].style.zIndex ='2';
+
+                // SET BANNER SOURCE
+                getTarget.images[getTarget.i].parentElement.previousElementSibling.children[2].src = getTarget.images[getTarget.i].src
+            
+                
+                
+            }else if(e.target.className == 'fas fa-arrow-right'){
+                
+                
+                if(getTarget.images[getTarget.i].offsetLeft >=1400){
+                    getTarget.thumbnail.style.transform = `translateX(-${val *= plus++ }px)`;
+                    // getTarget.thumbnail.style.transition ='transform 2s ease-out';
+                    val =200;
+                    
+
+                    if(getTarget.i == 23){
+                        getTarget.thumbnail.style.transform = `translateX(0px)`;
+                        plus = 1;
+                    };
+
+                    
+                    
+                };
+                console.log(this)
+                // ADD CLASSLIST GRAYSCALE FOR EACH INDEX getTarget.images
+                getTarget.images.forEach(e => e.classList.add('grayscale'));
+
+                // Z-INDEX SET
+                getTarget.images.forEach(e => e.style.zIndex ='0');
+                
+                // ADD STYLE TRANSFORM-SCALE(1) FOR EACH INDEX getTarget.images
+                getTarget.images.forEach(e => e.style.transform ='scale(1)');
+                
+                // ADD STYLE MARGIN LEFT AND RIGHT 3PX  FOR EACH INDEX getTarget.images
+                getTarget.images.forEach(e => e.style.margin ='0 3px');
+                
+                
+                
+                
+                
+                // REPLACE GRAY-SCALE CLASS TO BE SCALE CLASS ON  A SINGLE getTarget.images[i];
+                getTarget.images[getTarget.i].classList.replace('grayscale', 'scale');
+
+                // Z-INDEX SET
+                getTarget.images[getTarget.i].style.zIndex ='2';
+                
+                // ADD STYLE TRANSFORM SCALE(1.1) ON  A SINGLE getTarget.images[i]
+                getTarget.images[getTarget.i].style.transform ='scale(1.1)';
+
+                // SET BANNER
+                getTarget.images[getTarget.i].parentElement.previousElementSibling.children[2].src = getTarget.images[getTarget.i].src
+                if(getTarget.i >=23) return getTarget.i = 0;
+                console.log(getTarget.i++);
+                console.log(getTarget.images[getTarget.i]);
+                
+            }
+        });
+}())// IIFE
+
+
+
+
+// SLIDER IMAGE GALLERY 3.0 START//
+
+const prevBtn = document.getElementById('prev-button');
+const nextBtn = document.getElementById('next-button');
+const slider = document.querySelector('.corousel-images');
+const images = slider.querySelectorAll('img');
+let counter = 1;
+let size =350
+slider.style.transform =`translateX(-${size}px)`
+// console.log(images)
+
+
+nextBtn.addEventListener('click', () => { 
+    if(counter >= images.length-1) return;
+    slider.style.transition = 'transform .5s ease-in-out';
+    counter++;
+    slider.style.transform =`translateX(-${counter * size}px)`;
+    
+    slider.addEventListener('transitionend', () => {
+        if(images[counter].id === 'duplicate-1'){
+            slider.style.transition = 'none';
+            counter = images.length - counter;
+            slider.style.transform =`translateX(-${counter * size}px)`;
+        };
+            
+    })
+    
+
+});
+
+
+
+prevBtn.addEventListener('click', () => {
+    if(counter <= 0) return;
+    slider.style.transition = 'transform .5s ease-in-out';
+    counter--;
+    slider.style.transform =`translateX(-${counter * size}px)`;
+    
+    slider.addEventListener('transitionend', () => {
+        if(images[counter].id === 'duplicate-5'){
+            slider.style.transition = 'none';
+            counter = images.length - 2;
+            slider.style.transform =`translateX(-${counter * size}px)`;
+        };
+            
+    })
+    
+});
+// END SLIDER IMAGE GALLERY 3.0 //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// REVISI IMAGE GALLERY 2.0 START
+
+
+const prevB = document.querySelector('#prevB');
+const nextB = document.querySelector('#nextB');
+const thumb = document.querySelector('.thumb')
+const thumbImages = thumb.querySelectorAll('img');
+let sizeThumb = thumbImages[0].width * (thumbImages.length-1);
+const preview = document.getElementById('banner-preview');
+
+let counterThumb = 7;
+thumb.style.cursor ='pointer';
+thumb.addEventListener('click', function(e){
+    preview.src = e.target.src;
+    thumbImages.forEach(each => {each.style.filter ='grayscale(100%)'});
+    e.target.style.filter ='grayscale(0)';
+    counterThumb = e.target.alt
+    
+        
+    if(e.target.alt ==1){
+            counterThumb = 1;
+            thumb.style.transition ='none';
+            thumb.style.transform =`translateX(-${sizeThumb * counterThumb}px)`
+            thumbImages.forEach(each => {each.style.filter ='grayscale(100%)'});
+            thumbImages[counterThumb].style.filter ='grayscale(0)';
+            counterThumb + 1;   
+    };
+
+    if(e.target.id === 'dup-20'){
+        // alert('got it');
+            counterThumb = thumbImages.length -2;
+            thumb.style.transition ='none';
+            thumb.style.transform =`translateX(-${sizeThumb * counterThumb}px)`
+            thumbImages.forEach(each => {each.style.filter ='grayscale(100%)'});
+            thumbImages[counterThumb].style.filter ='grayscale(0)';
+            // counterThumb + 1; 
+    }
+
+        
+})
+
+
+setInterval(()=>{
+
+    thumb.style.opacity ='0'; 
+    thumb.style.transition ='opacity 2s ease-in-out';
+
+},7000);
+
+//add even listener
+prevB.addEventListener('click', ()=> {
+    if(counterThumb <= 0) return;
+    thumb.style.transition ='opacity 2s ease-in-out';
+    thumb.style.opacity ='1';       
+
+    // });//Need Improve
+    thumbImages.forEach((each)=>{
+        each.style.transition ='filter .3s ease-in-out';
+        each.style.filter ='grayscale(100%)';
+        
+            // each.style.opacity='0'
+            if(thumbImages[counterThumb] == each){
+                preview.src = thumbImages[counterThumb-1].src
+                thumbImages[counterThumb -1].style.filter ='grayscale(0)';
+            }
+       
+    });
+    thumb.style.transition ='transform .4s ease-in-out';
+    counterThumb--;
+    thumb.style.transform =`translateX(-${sizeThumb * counterThumb}px)`
+    thumb.addEventListener('transitionend', () => {
+            
+        if(thumbImages[counterThumb].id === 'dup-20'){
+            thumb.style.transition ='none';
+            counterThumb =thumbImages.length- 2;
+            thumbImages[counterThumb].style.opacity ='1';
+            thumb.style.transform =`translateX(-${sizeThumb * counterThumb}px)`
+        }
+    })
+
+});
+
+nextB.addEventListener('click', () => {
+    thumb.style.transition ='opacity 2s ease-in-out';
+    thumb.style.opacity ='1'; 
+    thumb.style.transition ='transform .4s ease-in-out';
+    if(counterThumb >= thumbImages.length -1) return;
+
+    counterThumb++;
+
+    thumb.style.transform =`translateX(-${sizeThumb * counterThumb}px)`
+
+    thumb.addEventListener('transitionend', () => {
+            
+        if(thumbImages[counterThumb].id === 'dup-1'){
+            thumb.style.transition ='none';
+            counterThumb =1;
+            console.log(counterThumb);
+            thumbImages[counterThumb].style.opacity ='1';
+            thumb.style.transform =`translateX(-${sizeThumb * counterThumb}px)`
+        };
+    })
+    thumbImages.forEach((each)=>{
+        
+        each.style.filter ='grayscale(100%)';
+        
+        if(thumbImages[counterThumb] == each){
+            preview.src = thumbImages[counterThumb].src
+            thumbImages[counterThumb].style.filter ='grayscale(0)';
+        }
+
+    
+    });
+})
+
+// END REVISI IMAGE GALLERY 2.0//
+
+   </script>
+</body>
+</html>
