@@ -9,8 +9,7 @@
 <body>
     <div id ='object-literal'></div>
     <div id ='function-declaration'></div>
-    <div id ='constructor-function'></div>
-    
+    <div id = 'constructor-function'></div>
 
 
     <script>
@@ -73,7 +72,63 @@
        console.log(id3);
        
 
-       
+    //    OBJECT LITERAL ANOTHER EXAMPLE
+    let Prop = {
+        cars : 'pick up',
+        motorbike : ['vario', 'vixion', 'supra x 125', 'new Supra X'],
+        boats : ['fast boat','wood boat'],
+        totalCars : function(){
+            console.log(this.cars.length);
+        },
+        totalMotorbike : function(){
+            return this.motorbike.length;
+            // console.log(this.motorbike.length);
+        },
+        totalBoats : function(arg){
+            console.log(this.boats.length);
+            console.log(typeof this.boats);
+            console.log(this.boats.push(arg));
+        }
+
+    }
+
+    Prop.totalCars(); // result is 7, its total letter of string;
+    console.log(Prop.totalMotorbike()); // result will be 4;
+    Prop.totalBoats('jetski'); // result add extra string jetski on array boats
+    Prop.totalBoats();  // result add  extra value on array boats, but the typeof undifined;
+    Prop.totalBoats('cano');
+    console.log(Prop);
+
+    //  FUNCTION DECLARATION ANOTHER EXAMPLE
+    function Family(){
+        let family = {};
+        family.mother = 'suara';
+        family.father ='suryadin';
+        family.children =['irwan','ardy', 'ary','darwis','ice'];
+        family.brothers = family.children.filter(function(e){
+            if(e != 'ice'){
+                return e;
+            }
+        })
+        family.sisters = family.children.filter(e => {
+            if(e === 'ice')return e;
+        }
+        
+        
+        )
+        family.parent = [family.mother, family.father];
+        return family;
+        
+    };
+    console.log(Family().brothers);  // result : family.brothers =['irwan','ardy', 'ary', 'darwis'];
+    console.log(Family().sisters);  // result : family.sisters = ['ice'];
+    console.log(Family().parent.join(' '));
+    console.log(Family());
+     
+
+
+
+         
     </script>
 </body>
 </html>

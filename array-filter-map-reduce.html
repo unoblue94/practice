@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array filter, map , reduce</title>
+</head>
+<body>
+    <script>
+        //  Array.prototype.filter()
+        let myPhoneNumber = [0,8,1,2,3,8,5,5,4,4,3,4];
+        let smallNumber = myPhoneNumber.filter(e => {
+            if(e < 5) return e;
+        })
+        console.log(smallNumber); // result : [0,1,2,3,4,4,3,4];
+
+        //  Array.prototype.map()
+        let multiply = myPhoneNumber.map(e => e * 3);
+        console.log(multiply); // result : Array(12) [ 0, 24, 3, 6, 9, 24, 15, 15, 12, 12, … ] 
+  
+        //  Array.prototype.reduce()
+        let numberofMP = myPhoneNumber.reduce((accumulator, currentvalue) => accumulator + currentvalue)
+        console.log(numberofMP);
+    </script>
+</body>
+</html>
